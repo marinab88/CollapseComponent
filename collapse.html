@@ -1,0 +1,106 @@
+<!-- 
+
+  COLLAPSE (accordion, spoiler, ...)
+  | - compact <> full
+
+  HTML:
+    * semantics
+  CSS:
+    * box model
+    * colors
+    * display
+  JS:
+    * OOP
+    * DOM- advanced
+      - events
+      - DOM TREE
+      - element, attribute and style manipulation
+    * evaluate rendering (in window)
+ -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collapse Component</title>
+  <link rel="stylesheet" href="collapse.css">
+</head>
+<body>
+  <h1>COLLAPSE COMPONENT</h1>
+
+  <div class="collapse-wrapper"></div>
+
+  <script src="collapse.js"></script>
+
+  <script>
+    // HW3: find the element using .getElementsByClassName() instead
+    // const wrappingDiv = document.querySelector('.collapse-wrapper');
+
+    // Get the first element with this class
+    const wrappingDiv = document.getElementsByClassName('collapse-wrapper')[0];
+
+    let collapse = new Collapse(wrappingDiv, 'Show Details', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam sit quidem iusto consequatur, quibusdam numquam impedit officia est neque quaerat reprehenderit quis. Voluptatem quo labore magni rem sequi cum dolores?');
+    collapse.render();
+  </script>
+  
+</body>
+</html>
+
+
+
+<!-- 
+  1. search element
+  2. create a custom object
+  3. render
+  ------------------------
+  4* parses / corrects the HTML fragment
+  5* creates the corresponding DOM fragment
+  6* attaches the DOM fragment to the wrapper
+  7* updates the window
+
+  ---------------------------------------
+    document (tree)
+      |
+      |_ html
+           \-----head
+            |
+             \----body
+                  ...
+
+                  div.collapse-wrapper (obj: HTMLDivElement)
+                          ^
+wrappingDiv----------------
+                            + innerHTML = 'html fragment'
+
+div   ->  obj: HTMLDivElement
+                |    \className = 'collapse'
+                V
+                .firstElementChild
+                V
+              button->  obj: HTMLButtonElement
+                              V \ innerText = 'Show Details'
+                              V
+                       .onClick () = V
+                                     V
+                                     V
+-------------------------------------V----
+                                     V
+                                     V
+                                     V
+collapse ------- > obj: Collapse     V
+                                     V
+                                     V
+                .render()            V
+                .clickHandler()      V
+                    .bind(...)<<<<<<    (ne da o clona)
+
+
+
+
+
+
+
+ -->

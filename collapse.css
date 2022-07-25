@@ -1,0 +1,26 @@
+body {
+  background-color: #333;
+  color: white;
+}
+
+.collapse {
+
+}
+
+.collapse button {
+  /* HW1: How much is this? in px, why? argument*/
+  /* Answer: 2rem = 32px 
+  With the CSS rem unit you can define a size relative to the font-size of the HTML root tag.
+  
+  */
+  font-size: 2rem;
+  /* HW2: How much is this? in px, why? argument*/
+  /* 
+    Answer: In this case, because font-size is 2rem, 1em = 32px.
+  */
+  padding: 1em;
+
+  background-color: #234;
+  border: 1px solid #456;
+  color: #789;
+}
